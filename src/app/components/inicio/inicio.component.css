@@ -1,0 +1,23 @@
+.example-card {
+  margin-right: 5px;
+  width: 250px;
+}
+mat-card:img{
+  width: 350px;
+  height: 350px;
+}
+.example-header-image {
+
+  background-size: cover;
+}
+.contenedor{
+  margin-top: 5px;
+  display: flex;
+}
+.img{
+  max-height: 300px;
+}
+.filtro{
+  margin-left: 15px;
+  margin-top: 10px;
+}

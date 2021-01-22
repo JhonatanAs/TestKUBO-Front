@@ -1,0 +1,71 @@
+<div class="login-form">
+  <h4> <strong>Datos de la pelicula</strong></h4>
+  <mat-form-field class="input-form" *ngIf="fileToUpload !=null">
+    <input matInput value="{{fileToUploadName}}" type="text">
+  </mat-form-field>
+
+  <div class="input-file">
+    <button  class = "attach" mat-icon-button color="primary" (click)="imgFileInput.click()" >
+      <span *ngIf="fileToUpload==null">Seleccione una imagen </span>
+      <span *ngIf="fileToUpload!=null">Cambiar de imagen  </span>
+      <mat-icon>attachment</mat-icon>
+    </button>
+    <!--input   hidden  type="file" #imgFileInput (change)="handleFileInput($event.target.files)"/-->
+    <input  hidden type="file" #imgFileInput alife-file-to-base64 multiple (onFileChanged)="handleFileInput($event)"/>
+  </div>
+
+  <mat-form-field class="input-form" >
+      <mat-label>Titulo</mat-label>
+      <input matInput [formControl]="nickFormControl" [errorStateMatcher]="matcher" [(ngModel)]="pelicula.titulo" type="text">
+      <mat-error *ngIf="nickFormControl.hasError('required')">
+        Titulo es obligatorio
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input-form">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput  [(ngModel)]="pelicula.descripcion"placeholder="Ej. La pelicula se desarrolla..."></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="input-form" >
+    <mat-label>Duracion en minutos</mat-label>
+    <input matInput [(ngModel)]="pelicula.duracion"  placeholder ="120" type="text">
+  </mat-form-field>
+
+  <mat-form-field class="input-form" >
+    <mat-label>Trailer youtube (link)</mat-label>
+    <input matInput [(ngModel)]="pelicula.trailer" type="text">
+  </mat-form-field>
+
+    <mat-form-field class="input-form">
+      <mat-label>Categoria</mat-label>
+      <mat-select [(ngModel)]="categoria_p" >
+
+          <mat-option *ngFor="let categoria of categorias" value={{categoria.id}}>{{categoria.nombre}}</mat-option>
+      </mat-select>
+
+    </mat-form-field>
+
+
+
+
+  <mat-form-field class="input-form" >
+    <input matInput [matDatepicker]="fechaRecaudo" placeholder="Fecha de estreno" [value]="fecha_actual"
+    (dateChange)="dateInputR($event.value)">
+    <mat-datepicker-toggle matSuffix [for]="fechaRecaudo"></mat-datepicker-toggle>
+    <mat-datepicker #fechaRecaudo></mat-datepicker>
+  </mat-form-field>
+
+
+
+
+
+
+  <div class="btn-login" >
+      <button id="btnLogin" mat-raised-button color="accent" (click)="guarda_pelicula()"> Aceptar</button>
+  </div>
+
+
+
+
+</div>

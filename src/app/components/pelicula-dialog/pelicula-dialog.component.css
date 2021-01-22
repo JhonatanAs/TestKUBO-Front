@@ -1,0 +1,49 @@
+.login-form {
+  text-align: center;
+}
+
+.input-form {
+  width: 80%;
+  margin-bottom: 2px;
+}
+
+.btn-login {
+  margin-bottom: 5px;
+}
+
+#btnLogin {
+  width: 82%;
+  align-items: center;
+}
+
+.attach{
+  float: left;
+  width: 80%;
+  margin-bottom: 2px;
+}
+.input-file{
+
+width: 80%;
+}
+
+
+.link {
+  color: rgb(0, 101, 216);
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.btnCategoria{
+  margin-left: 3px;
+}
+
+.chips-cate{
+  display: flex;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.chip{
+  margin-right: 2px;
+}

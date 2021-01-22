@@ -1,0 +1,37 @@
+
+<div class="filtro">
+  Filtrar:
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select [(value)]="filtroCate" (selectionChange)="filtra(filtroCate)">
+        <mat-option value="-1">Seleccione ...</mat-option>
+
+        <mat-option *ngFor="let cat of categorias" value={{cat.id}}>{{cat.nombre}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div ng *ngIf="peliculas!=null" class="contenedor">
+
+
+  <mat-card class="example-card"   *ngFor="let pelicula of peliculas">
+    <mat-card-header>
+
+      <mat-card-title>{{pelicula.titulo}}</mat-card-title>
+      <mat-card-subtitle>{{pelicula.nombre}}</mat-card-subtitle>
+      <mat-card-subtitle>Duracion:{{pelicula.duracion}} minutos</mat-card-subtitle>
+      <mat-card-subtitle>fecha estreno : {{pelicula.fecha_estreno}}</mat-card-subtitle>
+    </mat-card-header>
+    <img  class= " img" mat-card-image src="{{urlImg +'/'+pelicula.imagen}}" alt="img de la pelicula">
+    <mat-card-content>
+
+     <p>{{pelicula.descripcion}}</p>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button *ngIf="pelicula.visto!=1" mat-button (click)="vista(pelicula.id)">MARCAR COMO VISTA</button>
+      <button *ngIf="pelicula.visto==1" mat-button>YA VISTE ESTA PELICULA</button>
+      <button mat-button>COMPARTIR</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
